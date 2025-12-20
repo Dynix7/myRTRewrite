@@ -1,9 +1,15 @@
-wvoid setup() {
-  // put your setup code here, to run once:
+#include <Wire.h>
+//ill finish boring includes later
+#include "config.hpp"
+
+
+void setup() {
+  Wire.begin(SDA_PIN, SCL_PIN);
+
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
 
 }
