@@ -1,9 +1,9 @@
 #ifndef MISC_H
 #define MSIC_H
 
-int mm_to_steps(float d, float r, int tpr);
+int mm_to_steps(float distance);
 
-float steps_to_mm(int t, float r, int tpr);
+float steps_to_mm(int time);
 
 void beep();
 

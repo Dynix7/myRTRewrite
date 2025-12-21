@@ -2,11 +2,11 @@
 #include "misc.hpp"
 #include "config.hpp"
 
-int mm_to_steps(float d) {
+int mm_to_steps(float distance) {
     return (d/(TWO_PI*WHEEL_RADIUS)) * STEPS_PER_REV;
 }
 
-float steps_to_mm(int t) {
+float steps_to_mm(int time) {
     return ((float)t/(STEPS_PER_REV)) * TWO_PI * WHEEL_RADIUS;
 }
 
