@@ -5,7 +5,7 @@
 #define VREF_VOLTAGE 0.9447
 #define DAC_ADDRESS 0xD//0b00011011
 
-#define STEPS_PER_REV 200*8 //microsteps are controlled by dipswitch
+#define STEPS_PER_REV 200*32 //microsteps are controlled by dipswitch
 
 //Screen
 #define SCREEN_WIDTH 128
@@ -32,8 +32,8 @@
 #define MAX_VEL 2000
 
 //in rad/sec
-#define MAX_ANG_ACC 10 //5
-#define MAX_ANG_VEL 20 //10
+#define MAX_ANG_ACC 3 //5
+#define MAX_ANG_VEL 6 //10
 
 //Filter for angular velocity drift
 #define HIGH_PASS_FREQ 0.0001//0.0001
@@ -41,11 +41,11 @@
 //BEST VALUE: 0.0003
 //0 best value
 //2.5*pow(10, -6)
-//wtf does this mean CHANGE LATER
+
 
 //PATH INFO
 #define PATH_FILE "/path.txt" 
-
+#define LOG_FILE "/log.txt"
 
 //STATE DEFINITIONS i love enums
 
@@ -94,22 +94,18 @@ enum RTSTATES{
 #define LED_0 6
 #define LED_1 7
 
-//Motors
+//Left Motor
 #define STEP_L 21
 #define DIR_L 14
-#define DIAG_L 48
 #define INDEX_L 47
 
+//Right Motor
 #define STEP_R 11
 #define DIR_R 10
-#define DIAG_R 13
 #define INDEX_R 12
 
 #define STEP_EN 9
-#define SPREAD 45   
 
-//Laser why is there even an laser
-// #define LASER 42
 
 //SD Card
 #define SD_CLK 38

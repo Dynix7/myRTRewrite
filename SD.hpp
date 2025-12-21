@@ -3,9 +3,10 @@
 
 #include <ArduinoEigenDense.h>
 
-void initSD(int CLK, int MISO, int MOSI, int CS);
+void initSD();
 
-void readSD(Eigen::Vector2f *pPATH, int PATH_SIZE);
+void readSD(Eigen::Vector2f *pPATH[]);
 
+void writeSD(const char *path, const char *text);
 
 #endif
