@@ -67,7 +67,9 @@ enum RTSTATES{
     VERBOSE 
 };
 
-
+/*Possible struct for pathing and time information idk decide later
+just want to start consolidating variables instead of having random ones
+around the code*/ 
 
 
 // PINOUT GARBAGE
@@ -78,7 +80,7 @@ enum RTSTATES{
 #define SDA_PIN 17
 #define SCL_PIN 18
 
-//Buttons for input(0 and 1 are swapped from pcb labeling)
+//Buttons for input(
 #define BTN_0 2 //INIT | x
 #define BTN_1 1 //RUN | TIME ADJUST
 #define BTN_2 3 //ADJUSTMENTS | X ADJUST
