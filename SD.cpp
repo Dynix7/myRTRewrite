@@ -1,11 +1,12 @@
 #include "SD.hpp"
+#include "config.hpp"
 
 #include <FS.h>
 #include <SPI.h>
 #include <SD.h>
 
-#include "config.hpp"
-
+#include <ArduinoEigenDense.h>
+using namespace Eigen
 
 void initSD() {
 
@@ -17,7 +18,7 @@ void initSD() {
 
 }
 
-void readSD(Eigen::Vector2f *pPATH[]) {
+void readSD(Vector2f *pPATH[]) {
 
     File file = SD.open(PATH_FILE);
     

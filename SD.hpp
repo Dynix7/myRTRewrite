@@ -2,10 +2,11 @@
 #define SD_H
 
 #include <ArduinoEigenDense.h>
+using namespace Eigen
 
 void initSD();
 
-void readSD(Eigen::Vector2f *pPATH[]);
+void readSD(Vector2f *pPATH[]);
 
 void writeSD(const char *path, const char *text);
 

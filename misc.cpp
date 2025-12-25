@@ -2,13 +2,39 @@
 #include "misc.hpp"
 #include "config.hpp"
 
-int mm_to_steps(float distance) {
-    return (d/(TWO_PI*WHEEL_RADIUS)) * STEPS_PER_REV;
+// Distance Related Calculations
+int mmToSteps(float distance) {
+    return (distance/(TWO_PI*WHEEL_RADIUS)) * STEPS_PER_REV;
 }
 
-float steps_to_mm(int time) {
-    return ((float)t/(STEPS_PER_REV)) * TWO_PI * WHEEL_RADIUS;
+float stepsTomm(int steps) {
+        return ((float)steps/(STEPS_PER_REV)) * TWO_PI * WHEEL_RADIUS;
 }
+
+
+// Time Related Calculations
+double ToSec(unsigned long micro) {
+    return (double) micro * 1e-6;
+}
+
+
+//  Angle Related Calculations
+double toRad(double degrees) {
+    return (double) degrees * DEG_TO_RAD;
+}
+
+double limitRad(double radians) {
+    while (radians > PI) {
+        radians -= TWO_PI;
+    }
+    while (radians < PI) {
+        radians += TWO_PI;
+    }
+    return radians;
+}
+
+
+
 
 void beep() {
     digitalWrite(BUZZER, HIGH);
@@ -16,14 +42,15 @@ void beep() {
     digitalWrite(BUZZER, HIGH);
 }
 
-void pinSetup() {
 
+void pinSetup() {
+    //FINISH LATER
     // Button Init
     pinMode(BTN_0, INPUT);
     pinMode(BTN_1, INPUT);
     pinMode(BTN_2, INPUT);
     pinMode(BTN_3, INPUT);
 
-    // 
+    
 }
 

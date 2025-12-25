@@ -5,7 +5,7 @@
 #define VREF_VOLTAGE 0.9447
 #define DAC_ADDRESS 0xD//0b00011011
 
-#define STEPS_PER_REV 200*32 //microsteps are controlled by dipswitch
+#define STEPS_PER_REV 200*32 
 
 //Screen
 #define SCREEN_WIDTH 128
@@ -16,7 +16,7 @@
 
 //BMI270 IMU
 #define IMU_ADDRESS 0x68
-#define IMU_UPDATE_PERIOD 1.0/200
+#define IMU_UPDATE_PERIOD 1.0/400 
 
 //Robot physical dimensions
 //in mm
@@ -32,11 +32,10 @@
 #define MAX_VEL 2000
 
 //in rad/sec
-#define MAX_ANG_ACC 3 //5
-#define MAX_ANG_VEL 6 //10
+#define MAX_ANG_ACC 5 //5
+#define MAX_ANG_VEL 10 //10
 
 //Filter for angular velocity drift
-#define HIGH_PASS_FREQ 0.0001//0.0001
 #define COUNTER_BIAS 0.000008 // right bias 0.0001 left bias 0.0001
 //BEST VALUE: 0.0003
 //0 best value
@@ -51,14 +50,11 @@
 
 enum RTSTATES{
     INIT = -1,
-    IDLE,  //0
+    IDLE,  
     READY, 
     RUNNING,
     END_RUN,
     STOPPED,
-    SD_ERROR,
-    FILE_ERROR,
-    IMU_ERROR,
     ADJUST_MENU,
     ADJUST_X,
     ADJUST_Y,
@@ -66,10 +62,6 @@ enum RTSTATES{
     TESTING_TURNS,
     VERBOSE 
 };
-
-/*Possible struct for pathing and time information idk decide later
-just want to start consolidating variables instead of having random ones
-around the code*/ 
 
 
 // PINOUT GARBAGE
