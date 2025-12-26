@@ -66,7 +66,7 @@ void readSD(struct PATHINFO *pPathInfo) {
     pPathInfo->lastIndex++;
 
     }
-
+  file.close();
 }
 
 
