@@ -1,13 +1,17 @@
 #ifndef SD_H
 #define SD_H
 
+#include "config.hpp"
+
 #include <ArduinoEigenDense.h>
-using namespace Eigen
+using namespace Eigen;
 
 void initSD();
 
-void readSD(Vector2f *pPATH[]);
+void readSD(struct PATHINFO *pPathInfo);
 
-void writeSD(const char *path, const char *text);
+void writeSD(const char *text);
+
+void createLog();
 
 #endif

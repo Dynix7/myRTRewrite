@@ -1,6 +1,10 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#include <ArduinoEigenDense.h>
+using namespace Eigen;
+
+
 //DAC
 #define VREF_VOLTAGE 0.9447
 #define DAC_ADDRESS 0xD//0b00011011
@@ -62,6 +66,24 @@ enum RTSTATES{
     TESTING_TURNS,
     VERBOSE 
 };
+
+// Struct for the path info
+struct PATHINFO {
+    Vector2f PATH[80] = {0};
+    enum PATHMODE mode;
+    double targetTime = 0.0;
+    int currentIndex = 0;
+    int lastIndex = 0;
+
+};
+
+// im gonna keep the follow mode at 1 for the sake of cross compatibility
+// It shouldn't matter since the names should always be used over the number
+enum PATHMODE {
+    FOLLOW = 1, //1
+    TESTING // 2
+};
+
 
 
 // PINOUT GARBAGE

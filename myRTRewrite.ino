@@ -10,6 +10,8 @@
 using namespace Eigen;
 
 enum RTSTATES STATE;
+struct PATHINFO pathInfo;
+
 
 void setup() {
 

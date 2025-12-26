@@ -2,6 +2,12 @@
 #include "misc.hpp"
 #include "config.hpp"
 
+#include <ArduinoEigenDense.h>
+using namespace Eigen;
+
+
+// MATH RELATED FUNCRIONS
+
 // Distance Related Calculations
 int mmToSteps(float distance) {
     return (distance/(TWO_PI*WHEEL_RADIUS)) * STEPS_PER_REV;
@@ -34,8 +40,6 @@ double limitRad(double radians) {
 }
 
 
-
-
 void beep() {
     digitalWrite(BUZZER, HIGH);
     delay(50);
@@ -54,3 +58,89 @@ void pinSetup() {
     
 }
 
+
+//horrible switch-case chain for cordinate conversion
+Vector2f toCordinate(char X, char Y) {
+    
+    double pX, pY;
+
+    switch (X) {
+      case 'A':
+        pX = 0;
+        break;
+      case 'B':
+        pX = 250;
+        break;
+      case 'C':
+        pX = 500;
+        break;
+      case 'D':
+        pX = 750;
+        break;
+      case 'E':
+        pX = 1000;
+        break;
+      case 'F':
+        pX = 1250;
+        break;
+      case 'G':
+        pX = 1500;
+        break;
+      case 'H':
+        pX = 1750;
+        break;
+      case 'I':
+        pX = 2000;
+        break;
+      case 'J':
+        pX = 2250;
+        break;
+      case 'K':
+        pX = 2500;
+        break;
+      default:
+        Serial.printf("Bad Cordinate %c%c\n", X, Y);
+        break;
+    }
+    switch (Y) {
+      case '1':
+        pY = 0;
+        break;
+      case '2':
+        pY = 250;
+        break;
+      case '3':
+        pY = 500;
+        break;
+      case '4':
+        pY = 750;
+        break;
+      case '5':
+        pY = 1000;
+        break;
+      case '6':
+        pY = 1250;
+        break;
+      case '7':
+        pY = 1500;
+        break;
+      case '8':
+        pY = 1750;
+        break;
+      case '9':
+        pY = 2000;
+        break;
+      case 'A':
+        pY = 2250;
+        break;
+      case 'B':
+        pY = 2500;
+        break;
+      default:
+        Serial.printf("Bad Cordinate %c%c\n", X, Y);
+        break;
+    }
+
+    return Vector2f(pX, pY);
+
+}
