@@ -1,6 +1,7 @@
 #include <Wire.h>
 #include <ArduinoEigenDense.h>
 //ill finish boring includes later
+#include "controller.hpp"
 #include "BMIHelper.hpp"
 #include "screen.hpp"
 #include "SD.hpp"
@@ -23,6 +24,7 @@ void setup() {
   Wire.begin(SDA_PIN, SCL_PIN);
   Wire.setClock(400000); //Fast Mode
 
+  pinSetup();
 
 }
 

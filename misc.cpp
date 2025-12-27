@@ -9,14 +9,23 @@ using namespace Eigen;
 // MATH RELATED FUNCRIONS
 
 // Distance Related Calculations
-int mmToSteps(float distance) {
+int mmToSteps(double distance) {
     return (distance/(TWO_PI*WHEEL_RADIUS)) * STEPS_PER_REV;
 }
 
-float stepsTomm(int steps) {
-        return ((float)steps/(STEPS_PER_REV)) * TWO_PI * WHEEL_RADIUS;
+double stepsTomm(int steps) {
+        return ((double)steps/(STEPS_PER_REV)) * TWO_PI * WHEEL_RADIUS;
 }
 
+double getDistance(Vector2f p1, Vector2f p2) {
+  return sqrt(sq(p1(0) - p2(0)) + sq(p1(1) - p2(1)));
+} 
+
+double getNeededSpeed(double time, double distance) {
+  double d = distance;
+  double a = MAX_ACC;
+  return ((a * time) - (a * sqrt(sq(time) - 4 * d / a))) / 2;
+}
 
 // Time Related Calculations
 double ToSec(unsigned long micro) {

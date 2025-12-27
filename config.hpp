@@ -20,14 +20,13 @@ using namespace Eigen;
 
 //BMI270 IMU
 #define IMU_ADDRESS 0x68
-#define IMU_UPDATE_PERIOD 1.0/400 
+#define IMU_UPDATE_PERIOD 1.0/400 //400Hz
 
 //Robot physical dimensions
 //in mm
 #define WHEEL_RADIUS 40.6
 #define TRACK_WIDTH 146.2
 #define DIST_TO_DOWEL 85
-#define RIGHT_OFF 1
 
 //Kinematics
 
@@ -38,12 +37,6 @@ using namespace Eigen;
 //in rad/sec
 #define MAX_ANG_ACC 5 //5
 #define MAX_ANG_VEL 10 //10
-
-//Filter for angular velocity drift
-#define COUNTER_BIAS 0.000008 // right bias 0.0001 left bias 0.0001
-//BEST VALUE: 0.0003
-//0 best value
-//2.5*pow(10, -6)
 
 
 //PATH INFO
@@ -73,6 +66,7 @@ struct PATHINFO {
     enum PATHMODE mode;
     double targetTime = 0.0;
     int currentIndex = 0;
+    int targetIndex = 0;
     int lastIndex = 0;
 
 };
