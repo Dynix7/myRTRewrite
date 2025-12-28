@@ -17,14 +17,15 @@ void BMIHelper::initGyro() {
     delay(250);
     gyroOffset = 0.0;
 
-    //Configuration profile
+
 
         //Starts the BMI
     if (imu->beginI2C(IMU_ADDRESS) != BMI2_OK) {
         Serial.println("I2C or Wiring Error");
         return;
     }
-
+    
+    //Configuration profile
     bmi2_sens_config gyroConfig;
 
     gyroConfig.type = BMI2_GYRO;

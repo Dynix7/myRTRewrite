@@ -60,6 +60,14 @@ enum RTSTATES{
     VERBOSE 
 };
 
+enum CONTROLLERSTATES {
+    SETUP, //0
+    SETMOVE,
+    SETTURN,
+    MOVEMENT
+
+};
+
 // Struct for the path info
 struct PATHINFO {
     Vector2f PATH[80] = {0};
