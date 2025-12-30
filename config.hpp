@@ -9,7 +9,7 @@ using namespace Eigen;
 #define VREF_VOLTAGE 0.9447
 #define DAC_ADDRESS 0xD//0b00011011
 
-#define STEPS_PER_REV 200*32 
+#define STEPS_PER_REV (200*32) 
 
 //Screen
 #define SCREEN_WIDTH 128
@@ -72,6 +72,14 @@ enum CONTROLLERSTATES {
 
 };
 
+// im gonna keep the follow mode at 1 for the sake of cross compatibility
+// It shouldn't matter since the names should always be used over the number
+enum PATHMODE {
+    FOLLOW = 1, //1
+    TESTING // 2
+};
+
+
 // Struct for the path info
 struct PATHINFO {
     Vector2f PATH[80] = {0};
@@ -83,12 +91,6 @@ struct PATHINFO {
 
 };
 
-// im gonna keep the follow mode at 1 for the sake of cross compatibility
-// It shouldn't matter since the names should always be used over the number
-enum PATHMODE {
-    FOLLOW = 1, //1
-    TESTING // 2
-};
 
 
 

@@ -36,11 +36,11 @@ void Controller::startPath() {
 }
 
 void Controller::endPath() {
-    digiWrite(STEP_EN, HIGH);
+    digitalWrite(STEP_EN, HIGH);
     state = END;
 }
 
-void updateIndexes() {
+void Controller::updateIndexes() {
     if (pathInfo->targetIndex < pathInfo->lastIndex) {
         pathInfo->targetIndex++;
     }

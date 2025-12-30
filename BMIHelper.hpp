@@ -30,6 +30,6 @@ class BMIHelper {
 
         //DEBUGGING dont use for operations
         double getdThetaDEBUG();
-}       
+}; 
 
 #endif

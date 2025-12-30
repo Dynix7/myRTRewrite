@@ -25,13 +25,14 @@ void initSD() {
 // PATH POINTS
 void readSD(struct PATHINFO *pPathInfo) {
     
-    char buffer[4] = {0};
+    char buffer[10] = {0};
     Vector2f cordinate;
 
     File file = SD.open(PATH_FILE, FILE_READ);
     
     if (!file) {
         Serial.println("Read file cooked");
+        return;
     }
 
     //Reads path mode (converts to integer first)
@@ -48,23 +49,23 @@ void readSD(struct PATHINFO *pPathInfo) {
 
 
     //Reads paths
-    while (file.avaliable()) {
+    while (file.available()) {
         buffer[0] = file.read(); //Reads X
         buffer[1] = file.read(); //Reads Y
         file.read(); //Next line
     
-    //Converts the characters given to a cordinate
-    cordinate = toCordinate(buffer[0], buffer[1]);
+        //Converts the characters given to a cordinate
+        cordinate = toCordinate(buffer[0], buffer[1]);
 
-    //Adjusts the first cordinate to actual starting point since the
-    //robot starts off of the grid
-    if (pPathInfo->lastIndex == 0) {
-        pPathInfo->PATH[lastIndex] = Vector2f(cordinate(0), -DIST_TO_DOWEL);
+        //Adjusts the first cordinate to actual starting point since the
+        //robot starts off of the grid
+        if (pPathInfo->lastIndex == 0) {
+            pPathInfo->PATH[pPathInfo->lastIndex] = Vector2f(cordinate(0), -DIST_TO_DOWEL);
+            pPathInfo->lastIndex++;
+        }
+
+        pPathInfo->PATH[pPathInfo->lastIndex] = cordinate;
         pPathInfo->lastIndex++;
-    }
-
-    pPathInfo->PATH[lastIndex] = cordinate;
-    pPathInfo->lastIndex++;
 
     }
   file.close();

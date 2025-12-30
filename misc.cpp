@@ -59,7 +59,7 @@ double getAngleBetween(Vector2f target, Vector2f current) {
 void beep() {
     digitalWrite(BUZZER, HIGH);
     delay(50);
-    digitalWrite(BUZZER, HIGH);
+    digitalWrite(BUZZER, LOW);
 }
 
 

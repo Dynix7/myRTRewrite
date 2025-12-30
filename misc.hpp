@@ -1,14 +1,14 @@
 #ifndef MISC_H
-#define MSIC_H
+#define MISC_H
 
 #include <ArduinoEigenDense.h>
 using namespace Eigen;
 
 
 // Distance and motor step conversions
-int mmToSteps(float distance);
+int mmToSteps(double distance);
 
-float stepsTomm(int steps);
+double stepsTomm(int steps);
 
 double getDistance(Vector2f p1, Vector2f p2);
 
