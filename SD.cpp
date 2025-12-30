@@ -18,7 +18,8 @@ void initSD() {
 
 }
 
-// FORMAT IS JUST GONNA BE NUMBERS NO CHARACTERS SEPARATED BY A NEW LINE
+// FORMAT IS JUST GONNA BE NUMBERS NO CHARACTERS AND SEPARATED BY A NEW LINE
+// might adjust later to be more flexible about number of characters 
 // PATH MODE 
 // TIME
 // PATH POINTS

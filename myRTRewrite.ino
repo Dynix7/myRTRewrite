@@ -19,12 +19,14 @@ void setup() {
   STATE = INIT;
 
   Serial.begin(115200);
-  delay(1000);
+  delay(500);
 
   Wire.begin(SDA_PIN, SCL_PIN);
-  Wire.setClock(400000); //Fast Mode
+  Wire.setClock(400000); 
 
   pinSetup();
+  digitalWrite(SPREAD, HIGH); // Sets to SpreadCycle REMOVE IF SPREAD IS HARDCODED
+  digitalWrite(STEP_EN, HIGH); // DISABLES TMC2209 for now make sure to renable later
 
 }
 

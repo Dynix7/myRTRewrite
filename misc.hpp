@@ -14,14 +14,17 @@ double getDistance(Vector2f p1, Vector2f p2);
 
 
 // Time calculations
-double ToSec(unsigned long micro);
+double toSec(unsigned long micro);
 
 double getNeededSpeed(double time, double distance);
+
 
 //Angle Calculations
 double toRad(double degrees);
 
 double limitRad(double radians); // Keeps radians in range ex a turn of 4pi is 0
+
+double getAngleBetween(Vector2f target, Vector2f current); //get back to this later
 
 
 void beep();

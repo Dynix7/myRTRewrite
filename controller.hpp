@@ -18,15 +18,20 @@ class Controller {
         struct PATHINFO *pathInfo = nullptr;
         double pathStartTime = 0.0;
 
-        //Speed and Acceleration
-        double speed = MAX_VEL;
-        double acceleration = MAX_ACC;
+        double distance = 0.0;
+
+
+        double targetTheta = 0.0;
 
         //Current State
         enum CONTROLLERSTATES state = SETUP;
     public:
 
-    //Constructor ik format look bad but whatever
+        //Imma make these public so these can be set for testing
+        double speed = MAX_VEL;
+        double acceleration = MAX_ACC;
+
+    //Constructor
         Controller(
             AccelStepper *pStepperL, 
             AccelStepper *pStepperR, 
@@ -38,9 +43,16 @@ class Controller {
 
         void controllerUpdate();
 
+        // THESE SHOUlD BE GENERAL PURPOSE COMMANDS
         void turnTheta(double theta);
-
         void moveDistance(double distance);
+
+
+        enum CONTROLLERSTATES getCurrentState();
+
+        void startPath();
+
+        void endPath();
 
 }
 #endif

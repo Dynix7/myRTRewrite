@@ -16,10 +16,9 @@ void BMIHelper::initGyro() {
 
     delay(250);
     gyroOffset = 0.0;
+    
 
-
-
-        //Starts the BMI
+    //Starts the BMI
     if (imu->beginI2C(IMU_ADDRESS) != BMI2_OK) {
         Serial.println("I2C or Wiring Error");
         return;
@@ -50,7 +49,7 @@ void BMIHelper::initGyro() {
     //Manual Calibration
 
     //micros() is time from startup in microseconds
-    int samples = 500;
+    int samples = 600;
     tickStart = toSec(micros());
 
     for (int i = 0; i < samples) {

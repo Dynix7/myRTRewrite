@@ -64,7 +64,8 @@ enum CONTROLLERSTATES {
     SETUP, //0
     SETMOVE,
     SETTURN,
-    MOVEMENT
+    MOVEMENT,
+    END
 
 };
 
@@ -74,7 +75,7 @@ struct PATHINFO {
     enum PATHMODE mode;
     double targetTime = 0.0;
     int currentIndex = 0;
-    int targetIndex = 0;
+    int targetIndex = 1;
     int lastIndex = 0;
 
 };
@@ -90,6 +91,14 @@ enum PATHMODE {
 
 // PINOUT GARBAGE
 // CHANGE LATER
+
+
+// ATTENTION SO BASICALLY DEPENDING ON THE WIRING THE SPREAD MIGHT BE HARDCODED
+// SO LIKE THIS WOULD DO NOTHING SO LIKE CHECK THE PCB DESIGN FOR THAT
+// LIKE IT WOULD PROBABLY BE EASIER JUST TO ALWAYS BE PULLED TO HIGH FOR SPREADCYCLE
+#define SPREAD 45
+
+
 
 //I2C PINS
 
@@ -115,12 +124,12 @@ enum PATHMODE {
 //Left Motor
 #define STEP_L 21
 #define DIR_L 14
-#define INDEX_L 47
+
 
 //Right Motor
 #define STEP_R 11
 #define DIR_R 10
-#define INDEX_R 12
+
 
 #define STEP_EN 9
 

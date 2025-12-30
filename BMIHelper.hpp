@@ -26,7 +26,7 @@ class BMIHelper {
         void updateGyro();
 
         double getTheta();
-        void resetTheta();
+        void resetTheta(); 
 
         //DEBUGGING dont use for operations
         double getdThetaDEBUG();
