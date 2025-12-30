@@ -40,10 +40,11 @@ void Controller::endPath() {
     state = END;
 }
 
-void updateNextTarget() {
+void updateIndexes() {
     if (pathInfo->targetIndex < pathInfo->lastIndex) {
         pathInfo->targetIndex++;
     }
+    pathInfo->currentIndex++;
 }
 
 enum CONTROLLERSTATES Controller::getCurrentState() {
@@ -140,8 +141,8 @@ void Controller::controllerUpdate() {
 
         case FINISHMOVE:
             //Advances Indexes
-            updateNextTarget();
-            pathInfo->currentIndex++;
+            updateIndexes();
+
             // Checks if it has reached the end
             if (pathInfo->currentIndex == pathInfo->lastIndex) {
                 state = END;
@@ -162,7 +163,7 @@ void Controller::controllerUpdate() {
             //Updates absolute target theta
             targetTheta += deltaTheta;
             targetTheta = limitRad(targetTheta);
-            
+
             turnTheta(deltaTheta);
             state = TURNING;
             break;
