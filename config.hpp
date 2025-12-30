@@ -35,8 +35,8 @@ using namespace Eigen;
 #define MAX_VEL 2000
 
 //in rad/sec
-#define MAX_ANG_ACC 5 //5
-#define MAX_ANG_VEL 10 //10
+#define MAX_ANG_ACC 5   
+#define MAX_ANG_VEL 10 // might reduce to 8.5 since the bmi config I set the max to 8.72
 
 
 //PATH INFO
@@ -65,6 +65,9 @@ enum CONTROLLERSTATES {
     SETMOVE,
     SETTURN,
     MOVEMENT,
+    TURNING,
+    FINISHMOVE, // Currently doesn't do anything though might in future
+    FINISHTURN,
     END
 
 };

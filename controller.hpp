@@ -47,6 +47,7 @@ class Controller {
         void turnTheta(double theta);
         void moveDistance(double distance);
 
+        void updateNextTarget();
 
         enum CONTROLLERSTATES getCurrentState();
 

@@ -25,7 +25,7 @@ void setup() {
   Wire.setClock(400000); 
 
   pinSetup();
-  digitalWrite(SPREAD, HIGH); // Sets to SpreadCycle REMOVE IF SPREAD IS HARDCODED
+  digitalWrite(SPREAD, HIGH); // Sets to SpreadCycle-REMOVE IF HARDCODED
   digitalWrite(STEP_EN, HIGH); // DISABLES TMC2209 for now make sure to renable later
 
 }
