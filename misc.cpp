@@ -49,7 +49,8 @@ double limitRad(double radians) {
     return radians;
 }
 
-// Ok so basically originally
+// Ok so basically I'm going to have north (relative) be zero radians
+// so the trig results are going to be shifted by 90 degrees (pi/2)
 double getAngleBetween(Vector2f target, Vector2f current) {
   double dY = target(1) - current(1);
   double dX = target(0) - current(0);
@@ -93,7 +94,8 @@ void pinSetup() {
 //horrible switch-case chain for cordinate conversion
 Vector2f toCordinate(char X, char Y) {
     
-    double pX, pY;
+    double pX = 0.0;
+    double pY = 0.0;
 
     switch (X) {
       case 'A':

@@ -7,7 +7,10 @@ using namespace Eigen;
 
 //DAC
 #define VREF_VOLTAGE 0.9447
-#define DAC_ADDRESS 0xD//0b00011011
+#define DAC_ADDRESS 0x0D 
+//0b0001101, Depends on the wiring on the ADR0 pin,
+// This is if its connected to GND
+//MAKE SURE TO WRITE ONE MORE BIT FOR WRITE
 
 #define STEPS_PER_REV (200*32) 
 
