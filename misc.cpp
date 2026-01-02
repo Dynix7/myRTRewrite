@@ -49,7 +49,7 @@ double limitRad(double radians) {
     return radians;
 }
 
-// Ok so basically I'm going to have north (relative) be zero radians
+// Ok so basically I'm going to have north be zero radians
 // so the trig results are going to be shifted by 90 degrees (pi/2)
 double getAngleBetween(Vector2f target, Vector2f current) {
   double dY = target(1) - current(1);

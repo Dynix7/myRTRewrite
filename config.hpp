@@ -10,7 +10,6 @@ using namespace Eigen;
 #define DAC_ADDRESS 0x0D 
 //0b0001101, Depends on the wiring on the ADR0 pin,
 // This is if its connected to GND
-//MAKE SURE TO WRITE ONE MORE BIT FOR WRITE
 
 #define STEPS_PER_REV (200*32) 
 
@@ -18,7 +17,7 @@ using namespace Eigen;
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 #define OLED_RESET -1 
-#define SCREEN_ADDRESS 0x3C
+#define SCREEN_ADDRESS 0x3C   
 #define SCREEN_WIRE &Wire
 
 //BMI270 IMU
@@ -58,9 +57,11 @@ enum RTSTATES{
     ADJUST_MENU,
     ADJUST_X,
     ADJUST_Y,
+    SD_ERROR,
+    FILE_ERROR,
+    IMU_ERROR,
     ADJUST_TIME,
-    TESTING_TURNS,
-    VERBOSE 
+    TESTING_TURNS
 };
 
 enum CONTROLLERSTATES {
@@ -69,7 +70,7 @@ enum CONTROLLERSTATES {
     SETTURN,
     MOVEMENT,
     TURNING,
-    FINISHMOVE, // Currently doesn't do anything though might in future
+    FINISHMOVE,
     FINISHTURN,
     END
 

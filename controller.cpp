@@ -121,6 +121,8 @@ void Controller::controllerUpdate() {
                 } else {
                     speed = MAX_VEL;         
                 }
+                //Reduces distance so dowel is on top of point 
+                distance -= DIST_TO_DOWEL;
             }
         
             moveDistance(distance);

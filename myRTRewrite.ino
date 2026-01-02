@@ -1,5 +1,7 @@
 #include <Wire.h>
 #include <ArduinoEigenDense.h>
+#include <Adafruit_SSD1306.h>
+
 //ill finish boring includes later
 #include "controller.hpp"
 #include "BMIHelper.hpp"
@@ -14,6 +16,9 @@ enum RTSTATES STATE = INIT;
 struct PATHINFO pathInfo;
 
 // Do object construcots later
+
+Adafruit_SSD1306 SCREEN(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
 
 void setup() {
   Serial.begin(115200);
