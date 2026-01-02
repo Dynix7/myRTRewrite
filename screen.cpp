@@ -1,5 +1,5 @@
 #include "config.hpp"
-#include "pScreen->hpp"
+#include "screen.hpp"
 #include <Adafruit_SSD1306.h>
 
 //Wokwi was the goat for testing this
@@ -148,7 +148,7 @@ void updateScreen(Adafruit_SSD1306 *pScreen, enum RTSTATES state) {
             break;
 
     }
-    
+
     pScreen->display();
 
 }
