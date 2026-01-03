@@ -8,7 +8,7 @@ using namespace Eigen;
 
 void initSD();
 
-void readSD(struct PATHINFO *pPathInfo);
+bool readSD(struct PATHINFO *pPathInfo);
 
 void writeSD(const char *text);
 
