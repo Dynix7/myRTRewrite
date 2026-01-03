@@ -19,6 +19,8 @@ using namespace Eigen;
 #define OLED_RESET -1 
 #define SCREEN_ADDRESS 0x3C   
 #define SCREEN_WIRE &Wire
+#define SCREEN_REFRESH_RATE 1.0/10 //10 fps
+
 
 //BMI270 IMU
 #define IMU_ADDRESS 0x68
