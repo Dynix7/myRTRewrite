@@ -1,4 +1,5 @@
 #include "config.hpp"
+#include "misc.hpp"
 #include "screen.hpp"
 #include <Adafruit_SSD1306.h>
 
@@ -53,7 +54,7 @@ void displayButtons(Adafruit_SSD1306 *pScreen, char A, char B, char C, char D) {
 void updateScreen(Adafruit_SSD1306 *pScreen, enum RTSTATES state) {
 
     screenDeltaTime = toSec(micros()) - screenTickStart;
-    
+
     if (screenDeltaTime >= SCREEN_REFRESH_RATE) {
         pScreen->clearDisplay();
 
