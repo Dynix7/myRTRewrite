@@ -89,6 +89,8 @@ enum PATHMODE {
 // Struct for the path info
 struct PATHINFO {
     Vector2f PATH[80] = {0};
+    double XOffset = 0.0;
+    double YOffset = 0.0;
     enum PATHMODE mode;
     double targetTime = 0.0;
     int currentIndex = 0;

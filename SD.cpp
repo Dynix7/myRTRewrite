@@ -18,34 +18,48 @@ void initSD() {
 
 }
 
-// FORMAT IS JUST GONNA BE NUMBERS NO CHARACTERS AND SEPARATED BY A NEW LINE
-// might adjust later to be more flexible about number of characters 
-// PATH MODE 
-// TIME
-// PATH POINTS
-void readSD(struct PATHINFO *pPathInfo) {
+
+// Format
+// PATH MODE:
+// [Put the path mode here]
+// TIME:
+// [Put the targe time here]
+// PATH POINTS:
+// [Point1]
+// [Point2]
+
+// Ok so this is a little cooked so I'm gonna do a bit of a rewrite of this
+bool readSD(struct PATHINFO *pPathInfo) {
     
-    char buffer[10] = {0};
+    String line = "";
+    char buffer[5] = {0};
     Vector2f cordinate;
 
-    File file = SD.open(PATH_FILE, FILE_READ);
-    
+    File file = SD.open(PATH_FILE, FILE_READ); 
     if (!file) {
         Serial.println("Read file cooked");
-        return;
+        return false;
     }
 
-    //Reads path mode (converts to integer first)
-    pPathInfo->mode = atoi(file.read());  
-    file.read(); //Moves to next line
+    //Skips PATH MODE:
+    file.readStringUntil('\n');
 
 
-    // Reads time, 5 characters
-    for (int i = 0; i < 5; i++) {
-        buffer[i] = file.read();
-    }
-    pPathInfo->targetTime = atof(buffer);
-    file.read(); 
+    //Reads path mode
+    line = file.readStringUntil('\n');
+    line.trim();
+    pPathInfo->mode = line.toInt();  
+
+    file.readStringUntil('\n');
+
+
+    // Reads time
+    line = "";
+    line = file.readStringUntil('\n');
+    line.trim();
+    pPathInfo->targetTime = line.toDouble();
+
+    file.readStringUntil('\n');
 
 
     //Reads paths
@@ -68,13 +82,13 @@ void readSD(struct PATHINFO *pPathInfo) {
         pPathInfo->lastIndex++;
 
     }
-  file.close();
+    file.close();
+    return true;
 }
 
 
 void createLog() {
     File file = SD.open(LOG_FILE, FILE_WRITE);
-
     file.println("Log Created.");
     file.close();
 }
@@ -82,7 +96,6 @@ void createLog() {
 void writeSD(const char *text) {
 
     File file = SD.open(LOG_FILE, FILE_APPEND);
-
     if (!file) {
         Serial.println("Write file cooked");
         return;
